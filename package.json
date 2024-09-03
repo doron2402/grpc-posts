@@ -1,0 +1,34 @@
+{
+  "name": "grpc-post-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "./gen.sh",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "introspect": "drizzle-kit introspect:pg --config ./drizzle.config.ts",
+    "generate": "drizzle-kit generate --config=./drizzle.config.ts",
+    "db:migrate": "tsx -r dotenv/config src/db/migrate.ts",
+    "studio": "drizzle-kit studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.11.1",
+    "@grpc/proto-loader": "^0.7.13",
+    "@types/node": "^22.5.2",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
+    "pg": "^8.12.0",
+    "protobufjs": "^7.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.8",
+    "drizzle-kit": "^0.24.2",
+    "grpc-tools": "^1.12.4",
+    "tsx": "^4.19.0"
+  }
+}
