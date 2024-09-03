@@ -7,6 +7,7 @@ import type { Timestamp as _google_protobuf_Timestamp, Timestamp__Output as _goo
 export const _post_Post_Status = {
   DRAFT: 0,
   PUBLISHED: 1,
+  DELETED: 2,
 } as const;
 
 export type _post_Post_Status =
@@ -14,6 +15,8 @@ export type _post_Post_Status =
   | 0
   | 'PUBLISHED'
   | 1
+  | 'DELETED'
+  | 2
 
 export type _post_Post_Status__Output = typeof _post_Post_Status[keyof typeof _post_Post_Status]
 

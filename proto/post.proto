@@ -6,7 +6,7 @@ package post;
 import "google/protobuf/timestamp.proto";
 
 message Post {
-  uint32 id = 1;
+  int32 id = 1;
   string title = 2;
   string content = 3;
   google.protobuf.Timestamp created_at = 4;

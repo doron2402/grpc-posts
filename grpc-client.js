@@ -8,7 +8,6 @@ const PROTO_PATH = path.resolve(__dirname, './proto/post.proto');
 // server host
 const grpcServer = 'localhost:50051';
 
-
 // Load the protobuf definition
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   keepCase: true,
@@ -20,17 +19,18 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 
 const postProto = grpc.loadPackageDefinition(packageDefinition).post;
 
+
 // Create a gRPC client
 const client = new postProto.PostService(grpcServer, grpc.credentials.createInsecure());
 
 // Function to create a post
-function createPost(post) {
+function createPost(newPost) {
   return new Promise((resolve, reject) => {
-    client.CreatePost({ post }, (error, response) => {
+    client.CreatePost(newPost, (error, response) => {
       if (error) {
         return reject(error);
       }
-      resolve(response.post);
+      return resolve(response.post);
     });
   });
 }
@@ -68,7 +68,7 @@ function getPosts(options, callback) {
       title: 'Test Post',
       content: 'This is a test post content'
     };
-    console.log('Creating post:', newPost);
+
     const createdPost = await createPost(newPost);
     console.log('Post created:', createdPost);
 
