@@ -39,9 +39,6 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 
 const proto = grpc.loadPackageDefinition(packageDefinition) as unknown as ProtoGrpcType;
 
-// In-memory post storage
-const posts: Post[] = [];
-
 const server = new grpc.Server();
 
 // Implement the CreatePost and GetPost RPC methods
